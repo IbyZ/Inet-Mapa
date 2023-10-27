@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8mm"
+   height="8mm"
+   viewBox="0 0 8 8"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="facebook.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="10.929865"
+     inkscape:cx="13.952597"
+     inkscape:cy="19.48789"
+     inkscape:window-width="1280"
+     inkscape:window-height="657"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powermask"
+       id="path-effect12974"
+       is_visible="true"
+       lpeversion="1"
+       uri="#mask-powermask-path-effect12974"
+       invert="false"
+       hide_mask="false"
+       background="false"
+       background_color="#ffffffff" />
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask-powermask-path-effect12974">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 107.96661,79.244153 2.77969,1.869337 c 0,0 0.10894,0.121039 0.35101,0.09683 0.24207,-0.02421 2.78341,-2.026161 2.78341,-2.026161"
+         id="path12972"
+         sodipodi:nodetypes="cczc"
+         clip-path="none" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#0e68af;fill-opacity:1;stroke:none;stroke-width:0.817727;stroke-linecap:round;stroke-linejoin:bevel;stroke-dashoffset:140.471;paint-order:fill markers stroke"
+       id="rect355"
+       width="8"
+       height="8"
+       x="0"
+       y="0"
+       ry="1.2649505" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 3.4159941,6.3517911 v -2.085644 h -0.667406 v -0.945494 h 0.723024 l 0.007,-0.848163 c -0.01524,-0.106644 0.304688,-0.794029 0.83426,-0.813403 0.52874,-0.01934 0.938539,-0.007 0.938539,-0.007 v 0.889876 h -0.58398 c -0.02027,0.01158 -0.250277,-0.02711 -0.250277,0.22247 v 0.58398 h 0.778642 v 0.917686 h -0.750835 l -0.02781,2.057838 z"
+       id="path869"
+       sodipodi:nodetypes="ccccccscccscccccc" />
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+#map {
+    position: relative;
+    margin: 0 auto;
+    height: 85vh;
+    width: 100%;
+    z-index: 1; /* Asegura que el mapa esté detrás de los resultados */
+}
+
+#eet{
+    padding-left: 2vh;
+    max-width: 10%;
+}
+#buscar{
+    padding-right: 2vh;
+    min-width: 34%;
+}
+
+#selecc{
+    min-width: 5vh;
+    max-width: 50%;
+}

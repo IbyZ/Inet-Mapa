@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--stilogeneral-->
+        <link rel="stylesheet" href="css/style.css">
+    <!--CABECERA-->
+    <link rel="stylesheet" href="css/cabecera.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <!-- MarkerCluster -->
+    <link rel="stylesheet" href="Leaflet.markercluster-1.4.1\dist\MarkerCluster.css">
+    <link rel="stylesheet" href="Leaflet.markercluster-1.4.1\dist\MarkerCluster.Default.css">
+    <script src="Leaflet.markercluster-1.4.1\dist\leaflet.markercluster-src.js"></script>
+    <script src="Leaflet.markercluster-1.4.1\src\MarkerCluster.js"></script>
+
+    <!-- Estilos y Tipografia -->
+    <link rel="stylesheet" type="text/css" href="css/mapa.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+      <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title> Inet Mapa </title>
+</head>    
+<body>
+    <div col-sm-10 logo-head>
+        <a href="https://www.inet.edu.ar/" target="_blank">
+            <img src="img/logo-inet.png" alt="" width="400px" class="img-fluid imginet">
+        </a>
+    </div>
+    <header  class="site-header" >
+        <div class="header">
+
+                <!-- div de las redes -->
+                <nav style="background-color: #0e68af" class="navbar navbar-expand-lg bg-body-tertiary" >
+                    <div class="container-fluid inetnavbar">                            
+                        <a class="navbar-brand eet" href="https://eet1saviopalpala.edu.ar/" target="_blank">
+                            <img src="img/logoenet.svg" alt="Logo" height="50" width="50" class="d-inline-block align-text-top">
+                        </a>
+                        <a href="#Mainmap" class="a-nav">Mapa</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentt" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContentt">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                            </ul>
+                            <form class="d-flex RedesSociales" role="search">
+                                <a href="http://www.facebook.com/INET.ETP" target="_blank"><img src="img/facebook.svg" alt="" width="50px" class="img-fluid redsoc"></a>
+                                <a href="http://twitter.com/INETetp" target="_blank"><img src="img/twitter.svg" width="50px" class="img-fluid redsoc"></a>
+                                <a href="http://www.youtube.com/channel/UCKpd-B8McDUTwc_3kbZm18g" target="_blank"><img src="img/youtube.svg" alt="" width="50px" class="img-fluid redsoc"></a>
+                                <a href="http://www.instagram.com/inet_etp/" target="_blank"><img src="img/instagram.svg" alt="" width="50px" class="img-fluid redsoc"></a>
+                                <a href="mailto:direccion.inet@educacion.gob.ar"><img src="img/correo.svg" alt="" width="50px" class="img-fluid redsoc"></a>
+                                <a href="https://www.tiktok.com/@inetetp" target="_blank"><img src="img/tiktok.svg" alt="" width="50px" class="img-fluid redsoc"></a>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+        </div>
+    </header>
+    <div class="main container-fluid row" id="Mainmap">
+        <div class="mapa col-sm-8">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="https://eet1saviopalpala.edu.ar/" target="_blank" id="eet">
+                        <img src="img/logoenet.svg" alt="Logo" width="36" height="36" class="d-inline-block align-text-top">
+                    </a>
+
+                        <!-- Seleccionar provincias -->
+                    <form action="provincias-data my-4" id="selecc">
+                        <select class="form-select " name="provincia" id="provincias">
+                            <option value="Seleccione">Seleccione</option>
+                            <option value="-40.074384720515944,-66.82559095214766,4">Todo el Pais</option>
+                            <option value="-37.248,-60.293,6">Buenos Aires</option>
+                            <option value="-27.761,-66.99,7">Catamarca</option>
+                            <option value="-26.323,-60.952,6">Chaco</option>
+                            <option value="-44.056,-67.797,6">Chubut</option>
+                            <option value="-32.096,-63.681,6">Cordoba</option>
+                            <option value="-28.797,-57.843,7">Corrientes</option>
+                            <option value="-32.110,-59.095,7">Entre Rios</option>
+                            <option value="-24.707,-60.128,6">Formosa</option>
+                            <option value="-23.403,-65.588,7">Jujuy</option>
+                            <option value="-37.326,-65.654,6">La Pampa</option>
+                            <option value="-30.626,-67.4,7">La Rioja</option>
+                            <option value="-34.507,-68.533,6">Mendoza</option>
+                            <option value="-26.844,-54.388,7">Misiones</option>
+                            <option value="-38.514,-69.724,6">Neuquen</option>
+                            <option value="-39.876,-67.467,5">Rio Negro</option>
+                            <option value="-30.666,-68.807,7">San Juan</option>
+                            <option value="-33.788,-66.083,7">San Luis</option>
+                            <option value="-48.894,-69.609,6">Santa Cruz</option>
+                            <option value="-30.827,-61.084,6">Santa Fe</option>
+                            <option value="-28.004,-63.314,7">Santiago del Estereo</option>
+                            <option value="-54.008,-66.511,6">Tierra del Fuego</option>
+                            <option value="-27.005,-65.380,8">Tucuman</option>
+                        </select>
+                    </form>
+
+                    <!-- Checkbox como switch -->
+                    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="container-fluid" id="switch">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="sec_inet">
+                                <label class="form-check-label" for="flexSwitchCheckDefault" id="labsec">Secu Inet</label>
+                            </div>
+                            
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="snu_inet">
+                                <label class="form-check-label" for="flexSwitchCheckChecked" id="labsnu">SNU Inet</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="fp_inet">
+                                <label class="form-check-label" for="flexSwitchCheckChecked" id="labfp">F.P. Inet</label>
+                            </div>
+                        </div>
+                        <div>
+                            <form class="d-flex" role="search" id="buscar">
+                                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            </form>
+                        </div> 
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Div para mostra resultados de busqueda -->
+            <div class="busquedas">
+                <div id="resultados" class="resultados"></div>    
+            </div>
+            <!-- Mapa -->
+            <div id="map" ></div>
+        </div>
+        
+        <div class="col-sm-4">
+            <div class="row">
+
+                <!-- Filtrado -->
+                <div class="filtrado ">
+                    <div class="text-center"><hr></div>
+                    <h3>Filtro</h3>
+                    <form>
+                        <!-- Por tipo de escuela -->
+                        <div class="mb-3">
+                            <label for="formtipoesc" class="form-label">Tipo de Escuela</label>
+                            <select id="formtipoesc" class="form-select">
+                                <option value="0">Todos los Tipos</option>
+                                <option value="1">Secundario Inet</option>
+                                <option value="2">SNU Inet</option>
+                                <option value="3">FP Inet</option>
+                            </select>
+                        </div>
+                        <!-- Por provincia -->
+                        <div class="mb-3">
+                            <label for="formprov" class="form-label">Provincia</label>
+                            <select id="formprov" class="form-select">
+                                <option value="">Seleccione</option>
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Chaco">Chaco</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Entre Rios">Entre Rios</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Misiones">Misiones</option>
+                                <option value="Neuquen">Neuquen</option>
+                                <option value="Rio Negro">Rio Negro</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="San Luis">San Luis</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Tucuman">Tucuman</option>
+                            </select>
+                        </div>
+
+                        <!-- Por Localidad -->
+                        <div class="mb-3" id="buscloc">
+                            <label for="formlocalidad" class="form-label">Localidad</label>
+                            <select id="formlocalidad" class="form-select" aria-describedby="localidadhelp"></select>
+                            <div id="localidadhelp" class="form-text">Antes debes elegir el Tipo de Escuela y Provincia</div>
+                        </div>
+
+                        <!-- Por Oferta -->
+                        <div class="mb-3">
+                            <label for="formofertas" class="form-label">Oferta Educativa</label>
+                            <select id="formofertas" class="form-select" aria-describedby="ofertashelp"></select>
+                            <div id="ofertashelp" class="form-text">Aqui apareceran las ofertas formativas cargadas disponibles</div>
+                            <div id="ofertashelp" class="form-text">Antes debes elegir el Tipo de Escuela, Provincia y Oferta Educativa</div>
+                        </div>
+                        <!--<div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>-->
+                        <button type="submit" class="btn btn-primary" id="btnoferta">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla Ofertas -->
+        <div class="text-center"><hr></div>
+        <div id="labeltablaofertas"></div>
+        <div id="tablaContainerofertas" class="container table-responsive py-4 "></div>
+
+        <!-- Tabla Datos -->
+        <div class="text-center"><hr></div>
+        <div id="labeltabladatos"></div>
+        <div id="tablaContainerdatos" class="container table-responsive py-4 "></div>
+
+        <!-- Tabla Acreditado Ejecutado -->
+        <!-- <div class="text-center"><hr></div> 
+        <div id="labeltablaAcrEjc"></div>
+        <div id="tablaContainerAcrEjc" class="container table-responsive py-4 "></div> -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mt-5 text-start">
+            <div class="row">
+                <div class="col-md-2 col-sm-12 text-center">
+                    <img src="img/logo-inet2.png" alt="Logo Inet" width="95px" height="35px" class="img-fluid">
+                    <hr><!--EL GUIEN QUE ESTA DEBAJO-->
+                    <p class="text-center"><strong>Saavedra 789 - C1229ACE<br>Tel. (+54) 11 4129-2000</strong></p>
+                    <hr><!--EL GUIEN QUE ESTA DEBAJO-->
+                    <h4>Redes Sociales</h4>
+                    <!--REDES SOCIALEES-->
+                    <div class="redfooter">
+                        <a href="http://www.facebook.com/INET.ETP" target="_blank"><img src="img/facebook.svg" alt=""  class="img-fluid redsoc"></a>
+                        <a href="http://twitter.com/INETetp" target="_blank"><img src="img/twitter.svg"  class="img-fluid redsoc"></a>
+                        <a href="http://www.youtube.com/channel/UCKpd-B8McDUTwc_3kbZm18g" target="_blank"><img src="img/youtube.svg" alt=""  class="img-fluid redsoc"></a>
+                        <a href="http://www.instagram.com/inet_etp/" target="_blank"><img src="img/instagram.svg" alt=""  class="img-fluid redsoc"></a>
+                        <a href="mailto:direccion.inet@educacion.gob.ar"><img src="img/correo.svg" alt=""  class="img-fluid redsoc"></a>
+                        <a href="https://www.tiktok.com/@inetetp" target="_blank"><img src="img/tiktok.svg" alt=""  class="img-fluid redsoc"></a>
+                    </div>
+                    <!--FACEBOOK-->
+                    <a href="http://www.facebook.com/INET.ETP" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <!--TWITTER-->
+                    <a href="http://twitter.com/INETetp" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <!--YOUTUBE-->
+                    <a href="http://www.youtube.com/channel/UCKpd-B8McDUTwc_3kbZm18g" target="_blank" class="social"><i class="bi bi-youtube"></i></a>
+                    <!--INSTA-->
+                    <a href="http://www.instagram.com/inet_etp/" target="_blank" class="social"><i class="bi bi-instagram"></i></a>
+                    <!--tiktok??-->
+                    <a href="https://www.tiktok.com/@inetetp" target="_blank"><i class="bi bi-tiktok"></i></a>
+                    <hr>
+                    <img src="img/ministerio.png" alt="logoministerio" class="img-fluid">
+                </div>
+                <!--otraCOLUMNA-->
+                <div class="col-md-2 col-sm-6">
+                    <h4><a href="http://www.inet.edu.ar/index.php/asuntos-federales/">Asuntos Federales</a></h4>
+                    <ul class="list-unstyled">
+                        <li><a href="http://www.inet.edu.ar/index.php/asuntos-federales/comision-federal/">Comisión Federal</a></li>
+                        <li><a href="http://www.inet.edu.ar/index.php/asuntos-federales/planes-de-mejora-de-la-etp/">Planes de Mejora</a></li>
+                        <li><a href="http://www.inet.edu.ar/index.php/asuntos-federales/programa-clan-capacitacion-laboral-de-alcance-nacional/">Programa CLAN</a></li>
+                        <li><a href="http://www.inet.edu.ar/index.php/asuntos-federales/infraestructura/">Infraestructura</a></li>
+                    </ul>
+                </div>
+                <!--COLUMNAdividida en otro3columnas-->
+            
+                    <!--PRIMERO-->
+                    <div class="col-md-2 col-sm-6">
+                        <h4><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/">Secundario Técnico</a></h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/practicas-profesionalizantes/">Prácticas Profesionalizantes</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/olimpiadas-nacionales-de-construcciones-y-electromecanica/">Encuentros Educativos</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/marcos-de-referencia-de-nivel-secundario/">Marcos de Referencia</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/formacion-docente-inicial/">Formación Docente Inicial</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-secundaria-tecnica/finestec/">FinEsTec</a></li>
+                        </ul>
+                    </div>
+                    <!--SEGUNDO-->
+                    <div class="col-md-2 col-sm-6">
+                        <h4>
+                            <a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-superior-tecnica/">Educación Superior</a>
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/educacion-superior-tecnica/marcos-de-referencia-de-nivel-superior/">Marcos de Referencia</a></li>
+                        </ul>
+                    </div>
+                    <!--TERCERO-->
+                    <div class="col-md-2 col-sm-6">
+                        <h4>
+                            <a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/">Formación Profesional</a>
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/cursos-de-capacitacion/">Cursos de Capacitación</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/pretis/">Construir Inclusión</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/programa-federal-de-asistencia-tecnica-institucional-y-jurisdiccional/">Asistencia Técnica</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/marcos-de-referencia-de-formacion-profesional/">Marcos de Referencia</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/mesa-federal-de-trabajo-permanente-para-la-formacion-profesional/">Mesa Federal</a></li>
+                            <li><a href="http://www.inet.edu.ar/index.php/niveles-educativos/formacion-profesional/programa-federal-de-aulas-tecnicas-moviles/">Aulas Talleres Móviles</a></li>
+                        </ul>
+                    </div>
+                <!--OTRA-->
+                <div class="col-md-2 col-sm-6">
+                    <h4><a href="http://www.inet.edu.ar/index.php/normativa/">Normativa</a></h4>
+                    <h4><a href="http://www.inet.edu.ar/index.php/institucional/conetyp/">CoNETyP</a></h4>
+                    <h4><a href="http://www.inet.edu.ar/index.php/institucional/credito-fiscal/">Crédito Fiscal</a></h4>
+                    <h4><a href="http://www.inet.edu.ar/index.php/material-de-capacitacion/">Biblioteca</a></h4>
+                    <h4><a href="http://catalogo-inet.educacion.gob.ar/">Catálogo de Títulos</a></h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/buscador.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+</body>
+</html>

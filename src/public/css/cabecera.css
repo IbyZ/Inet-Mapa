@@ -1,0 +1,73 @@
+
+/*HEADDER*/
+.imginet{
+    padding: 4vh;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+header{
+    padding-bottom: 3vh;
+}
+.header{
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+#Mainmap{
+    margin: 0;
+}
+.inetnavbar{
+    background-color: #0e68af;
+}
+.a-nav{
+    color: white;
+    text-decoration: none;
+}
+.a-nav:hover{
+    color: rgb(21, 14, 65);
+}
+
+.main{
+    background-color: #f8f9faff;
+}
+.filtrado{
+    padding: 2vh;
+}
+#labeltabla{
+    padding-top: 3vh;
+}
+#labeltabla h3{
+    height: 1vh;
+}
+footer{
+    color: white;
+    background-color: #0e68af;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+footer a:hover{
+    color: rgb(21, 14, 65);
+}
+footer div{
+    padding:0.5em;
+}
+
+.redfooter img{
+    min-height: 2em;
+    max-height: 2em;
+}
+
+.RedesSociales a:hover {
+    background-color: rgb(10, 10, 66); /* Cambia el color de fondo al pasar el mouse */
+}
+.eet:hover{
+    background-color: red;
+}
+#resultados a:hover{
+    background-color: rgb(201, 201, 201);
+    cursor:pointer;
+}

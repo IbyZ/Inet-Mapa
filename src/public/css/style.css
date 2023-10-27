@@ -1,0 +1,57 @@
+#resultados {
+    position: absolute;
+    z-index: 9999;
+    max-width: 40%;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+#resultadosloc{
+    position: absolute;
+    z-index: 9999;
+    max-width: 30%;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+.mensaje-no-resultados {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.busquedas{
+    direction: rtl;
+}
+.busquedasloc{
+    direction: rtl;
+}
+
+#linkOfertas{
+    text-decoration: none;
+    color: #0e68af;
+}
+#linkOfertas:hover{
+    color: #0095ff;
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Estilos para la barra de desplazamiento */
+/* Webkit (Safari/Chrome) */
+::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 5px; 
+}
+
+/* Firefox */
+* {
+    scrollbar-color: #888 transparent; /* Color de fondo del pulgar de la barra de desplazamiento en Firefox */
+}
+
+/* Para navegadores que soportan la propiedad scrollbar-width (por ejemplo, Firefox Quantum) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
