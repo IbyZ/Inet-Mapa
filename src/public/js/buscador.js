@@ -308,6 +308,7 @@ function actualizarSelectOfertas() {
             var nombresOferta = oferta.Oferta;
             var descripciones = oferta.Descripcion;
             var familiasProfesional = oferta.plan_estudio;
+            var familiasProfesional = familiasProfesional.replace(/^,/, '');
             var fechasInicio = oferta.anio;
             var fechasFin = oferta.sector;
 
