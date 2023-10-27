@@ -175,9 +175,11 @@ function actualizarSelect() {
     optionTodas.value = '0';
     if (localidadesFiltradas.length == 0){
         optionTodas.textContent = 'No se hallaron localidades con ese tipo de escuelas.';
+        selectLocalidad.style.color = 'red';
         selectLocalidad.appendChild(optionTodas);
         return;
     }else{
+    selectLocalidad.style.color = 'black';
     optionTodas.textContent = 'Todas las Localidades';
     selectLocalidad.appendChild(optionTodas);
     }
@@ -236,10 +238,12 @@ function actualizarSelectOfertas() {
 
     if (ofertasFiltradas.length == 0){
         optionTodasOfertas.textContent = 'No se hallaron ofertas.';
+        selectOferta.style.color = 'red';
         selectOferta.appendChild(optionTodasOfertas);
         return;
     }else{
     optionTodasOfertas.textContent = 'Todas las Ofertas';
+    selectOferta.style.color = 'black';
     selectOferta.appendChild(optionTodasOfertas);
     }
     // Llenar el tercer select con las localidades filtradas
@@ -293,13 +297,14 @@ function actualizarSelectOfertas() {
         
         // Tabla
         var tablaHTML = '<table class="table table-dark table-bordered">';
-        tablaHTML += '<thead><tr><th>Nombre de la Escuela</th><th>CUE ID</th><th>Oferta</th><th>Descripción</th><th>Plan de Estudio</th><th>Año</th><th>Sector</th></tr></thead>';
+        tablaHTML += '<thead><tr><th>Nombre de la Escuela</th><th>CUE ID</th><th>Localidad</th><th>Oferta</th><th>Descripción</th><th>Plan de Estudio</th><th>Año</th><th>Sector</th></tr></thead>';
         tablaHTML += '<tbody>'
 
         // Construye las filas de la tabla
         ofertasEscuela.forEach(function (oferta) {
             var nombreEscuela = oferta.nombre;
-            var cueID = oferta.cue;    
+            var cueID = oferta.cue;
+            var localidad = oferta.localidad;
             var nombresOferta = oferta.Oferta;
             var descripciones = oferta.Descripcion;
             var familiasProfesional = oferta.plan_estudio;
@@ -311,6 +316,7 @@ function actualizarSelectOfertas() {
             tablaHTML += '<td>' + nombreEscuela + '</td>';
             tablaHTML += '<td rowspan="' + nombresOferta + '">' + cueID + '</td>';
             
+            tablaHTML += '<td>' + localidad + '</td>';
             tablaHTML += '<td>' + nombresOferta + '</td>';
             tablaHTML += '<td>' + descripciones + '</td>';
             tablaHTML += '<td>' + familiasProfesional + '</td>';

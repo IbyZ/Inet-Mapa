@@ -19,3 +19,42 @@
     min-width: 5vh;
     max-width: 50%;
 }
+
+/* Circulos */
+.circles {
+    font-size: 1em; /* Tamaño del texto */
+    position: relative; /* Necesario para el posicionamiento del círculo */
+}
+
+/* Circulo rojo */
+.circles.red::before {
+    content: ''; /* Contenido vacío */
+    width: 0.5em; /* Ancho del círculo */
+    height: 0.5em; /* Altura del círculo */
+    background-color: red; /* Color rojo */
+    border-radius: 50%; /* Borde redondeado para hacer un circulo */
+    display: inline-block; /* Permite que el elemento tenga ancho y alto */
+    margin-right: 0.5em; /* Espaciado entre el círculo y el texto */
+}
+
+/* Circulo dorado */
+.circles.dorado::before {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    background-color: gold;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+/* Circulo azul */
+.circles.blue::before {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5em;
+}

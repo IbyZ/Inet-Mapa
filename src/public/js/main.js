@@ -278,7 +278,7 @@ const getData = async () => {
         // Tabla
         
         var tablaHTML = '<table class="table table-dark table-bordered">';
-        tablaHTML += '<thead><tr><th>CUE ID</th><th>Oferta</th><th>Descripción</th><th>Plan de Estudio</th><th>Año</th><th>Sector</th></tr></thead>';
+        tablaHTML += '<thead><tr><th>CUE ID</th><th>Localidad</th><th>Oferta</th><th>Descripción</th><th>Plan de Estudio</th><th>Año</th><th>Sector</th></tr></thead>';
         tablaHTML += '<tbody>'
 
         var nombre = nombre_escuelas.filter(function (nombre){ 
@@ -289,7 +289,8 @@ const getData = async () => {
         // Construye las filas de la tabla
         ofertasEscuela.forEach(function (oferta) {
             var nombreEscuela = oferta.nombre;
-            var cueID = oferta.cue;    
+            var cueID = oferta.cue;
+            var localidad = oferta.localidad;
             var nombresOferta = oferta.Oferta;
             var descripciones = oferta.Descripcion;
             var familiasProfesional = oferta.plan_estudio;
@@ -300,6 +301,7 @@ const getData = async () => {
             // Muestra el nombre de la escuela y el cue_id solo en la primera fila
             tablaHTML += '<td rowspan="' + nombresOferta + '">' + cueID + '</td>';
             
+            tablaHTML += '<td>' + localidad + '</td>';
             tablaHTML += '<td>' + nombresOferta + '</td>';
             tablaHTML += '<td>' + descripciones + '</td>';
             tablaHTML += '<td>' + familiasProfesional + '</td>';
