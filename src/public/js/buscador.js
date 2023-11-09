@@ -40,7 +40,7 @@ function filtrarEscuelas(escuelas, busqueda) {
         const nombreSinAcentos = escuela.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
         // Verificar si alguna de las palabras de la búsqueda está presente en el nombre o el cue de la escuela
-        return palabrasBusqueda.every(palabra => nombreSinAcentos.includes(palabra) || escuela.cue.includes(palabra));
+        return palabrasBusqueda.every(palabra => nombreSinAcentos.includes(palabra) || escuela.cue == palabra);
     });
 }
 
